@@ -1,0 +1,21 @@
+<div class="h-36 w-full bg-white rounded-3xl mb-4 p-4 flex">
+  <div [style.background]="bgFlag" class="block rounded-3xl w-16 h-16 border-1 border-gray-400 !bg-cover !bg-center"></div>
+  <div class="flex flex-col grow justify-between">
+
+    <div class="ml-2 flex flex-col items-center">
+      <span class="text-2xl text-indigo-800 font-bold"> {{ country }} </span>
+      <span class="text-base text-indigo-400 font-bold">  {{ joinCapitals || 'Sin capital' }} </span>
+    </div>
+
+    <div class="flex justify-between px-4">
+      <span class="text-sm text-slate-600"> Region: {{ region }} </span>
+      <span class="text-sm text-slate-600 truncate w-80"> Lenguajes: {{ joinLenguages }} </span>
+    </div>
+    <div class="flex justify-between px-4">
+      <span class="text-sm text-slate-600"> currency(icon): {{ joinCurrencies || 'Sin simbolo' }} </span>
+      <span class="text-sm text-end text-indigo-700 font-bold"> poblacion(icon): {{ population }} </span>
+    </div>
+  </div>
+
+
+</div>

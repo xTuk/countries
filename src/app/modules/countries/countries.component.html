@@ -1,0 +1,24 @@
+<div class="w-full h-screen p-8 flex flex-col">
+  <h1 class="text-5xl text-white text-center mb-8" >Paises</h1>
+
+    <cdk-virtual-scroll-viewport itemSize="40" class="grow countries-container">
+      <div class="grid grid-cols-3 gap-4">
+        <ng-container *cdkVirtualFor="let country of countries">
+          <app-card-country
+            [flag]="country.flag"
+            [country]="country.names.common"
+            [currencies]="country.currencies"
+            [capitals]="country.capital"
+            [lenguages]="country.languages"
+            [population]="country.population"
+            [region]="country.region"
+          ></app-card-country>
+        </ng-container>
+      </div>
+    </cdk-virtual-scroll-viewport>
+
+
+  <!-- CHARTS -->
+
+  <!-- TABLE -->
+</div>

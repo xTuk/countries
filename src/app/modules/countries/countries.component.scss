@@ -1,0 +1,14 @@
+.countries-container {
+  overflow-y: scroll;
+}
+
+.countries-container::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.countries-container::-webkit-scrollbar-thumb {
+  background-color: #878787;
+  border-radius: 16px;
+  border: 1px none #ffffff;
+}
+
