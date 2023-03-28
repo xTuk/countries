@@ -4,44 +4,46 @@ export interface CountryResponse {
   flags: ImagesCountry
   flag: string
   coatOfArms: ImagesCountry
-  ltalng: number[]
+  latlng: number[]
   name: ResponseNamesOfCountry<Record<string, NamesOfCountry>>
   region: string
   subregion?: string
   capital: string[]
-  capitalInfo: { latlgn?: number[] }
+  capitalInfo: { latlng?: number[] }
   population: number
   currencies: Record<string, Currency>
-  timezone: string
+  timezones: string[]
   unMember: boolean
   independent: boolean
   landlocked: boolean
   languages: Record<string, string>
-  gini?: number
+  gini?: Record<string, number>
   maps: MapsCountry
   area: number
+  borders: string[]
 }
 
 export interface Country {
   flag: string
   flagName: string
   coatOfArms: string
-  ltalng: number[]
+  latlng: number[]
   names: ResponseNamesOfCountry<NamesOfCountry[]>
   region: string
   subregion?: string
   capital: string[]
-  capitalLtalng: number[]
+  capitalLatlng: number[]
   population: number
   currencies: Currency[]
-  timezone: string
+  timezones: string[]
   unMember: boolean
   independent: boolean
   landlocked: boolean
   languages: string[]
-  gini?: number
+  gini?: string
   maps: MapsCountry
   area: number
+  borders: string[]
 }
 
 interface ImagesCountry {

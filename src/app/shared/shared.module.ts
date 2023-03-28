@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { PieComponent } from './charts/pie/pie.component';
 import { BarComponent } from './charts/bar/bar.component';
 import { CardCountryComponent } from './ui/card-country/card-country.component';
+import { NgChartsModule } from 'ng2-charts';
+import { UiButtonComponent } from './ui/ui-button/ui-button.component';
 
 
 
@@ -10,15 +12,18 @@ import { CardCountryComponent } from './ui/card-country/card-country.component';
   declarations: [
     PieComponent,
     BarComponent,
-    CardCountryComponent
+    CardCountryComponent,
+    UiButtonComponent
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgChartsModule
   ],
   exports: [
     PieComponent,
     BarComponent,
-    CardCountryComponent
+    CardCountryComponent,
+    UiButtonComponent
   ]
 })
 export class SharedModule { }

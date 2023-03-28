@@ -1,0 +1,22 @@
+.image-disabled {
+  filter: grayscale(1);
+}
+:host {
+  display: flex;
+  flex-grow: 1;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: transparent !important;
+}
+
+*::-webkit-scrollbar {
+  width: 4px !important;
+  height: 0 !important;
+  background-color: transparent !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #cacaca !important;
+  border-radius: 50px !important;
+}

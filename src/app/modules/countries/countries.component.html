@@ -1,24 +1,54 @@
 <div class="w-full h-screen p-8 flex flex-col">
-  <h1 class="text-5xl text-white text-center mb-8" >Paises</h1>
+  <h1 class="text-5xl text-white text-center mb-8">Paises</h1>
 
-    <cdk-virtual-scroll-viewport itemSize="40" class="grow countries-container">
-      <div class="grid grid-cols-3 gap-4">
-        <ng-container *cdkVirtualFor="let country of countries">
-          <app-card-country
-            [flag]="country.flag"
-            [country]="country.names.common"
-            [currencies]="country.currencies"
-            [capitals]="country.capital"
-            [lenguages]="country.languages"
-            [population]="country.population"
-            [region]="country.region"
-          ></app-card-country>
-        </ng-container>
+  <div class="flex items-center justify-center mb-8 gap-4">
+    <app-ui-button icon="fa-solid fa-rectangle-list" iconSize="text-2xl" [active]="list" (onClick)="list = true"></app-ui-button>
+
+    <app-ui-button icon="fa-solid fa-chart-column" iconSize="text-2xl" [active]="!list" (onClick)="getChartsData()"></app-ui-button>
+  </div>
+
+  <div class="flex grow flex-col" *ngIf="list">
+    <div class="w-full mb-8 flex flex-col md:flex-row gap-2 md:gap-0">
+      <input
+        type="text"
+        placeholder="Buscar"
+        class="w-full lg:w-3/4 rounded-full p-3 focus:outline-none border-2 border-gray-100"
+        (keyup)="filter($event)"
+      />
+      <div class="w-full lg:w-1/4 ml-2 flex items-center">
+        <span class="text-base text-white font-bold mr-2">Ordenar:</span>
+        <select
+          [(ngModel)]="orderSelect"
+          (change)="sortList(orderDirection, orderSelect)"
+          class="grow rounded-xl p-3 focus:outline-none border-2 border-gray-100"
+        >
+          <option value="">Seleccionar</option>
+          <option value="name">Nombre</option>
+          <option value="capital">Capital</option>
+          <option value="region">Continente</option>
+        </select>
+        <button
+          class="py-2 px-3 ml-3 bg-white text-violet-500 transition duration-300 ease-in-out rounded-lg border-2 border-transparent flex items-center justify-center cursor-pointer hover:bg-violet-500 hover:text-white hover:border-2 hover:border-white disabled:bg-gray-200 disabled:text-gray-400 disabled:hover:border-transparent"
+          [disabled]="!orderSelect"
+          (click)="sortList(!orderDirection)"
+        >
+          <i
+            class="fa-solid fa-arrow-down-{{
+              orderDirection ? 'a-z' : 'z-a'
+            }} text-xl"
+          ></i>
+        </button>
       </div>
-    </cdk-virtual-scroll-viewport>
+    </div>
 
+    <app-countries-list-cards
+      [loading]="loading"
+      (onClick)="showCountry($event)"
+      [countries]="countriesFilter"
+    ></app-countries-list-cards>
+  </div>
+
+  <app-countries-charts *ngIf="!list"></app-countries-charts>
 
   <!-- CHARTS -->
-
-  <!-- TABLE -->
 </div>

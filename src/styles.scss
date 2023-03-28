@@ -2,3 +2,44 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import "../node_modules/@fortawesome/fontawesome-free/css/all.css";
+// regular style toast
+@import 'ngx-toastr/toastr';
+
+.border-1 {
+  border-width: 1px;
+}
+
+// html, body { height: 100%; }
+// body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.modal-pane {
+  :host {
+    display: flex;
+    flex-grow: 1;
+  }
+
+  *::-webkit-scrollbar-track {
+    background-color: transparent !important;
+  }
+
+  *::-webkit-scrollbar {
+    width: 4px !important;
+    height: 0 !important;
+    background-color: transparent !important;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #cacaca !important;
+    border-radius: 50px !important;
+  }
+
+  @media only screen and (max-width: 768px) {
+    /* Estilos para pantallas de hasta 600px de ancho */
+      min-width: 80vw !important;
+      width: 80vw;
+      max-width: 90vh !important; /* Cambiar el ancho máximo del dialog */
+      height: 90vw;
+  }
+
+}

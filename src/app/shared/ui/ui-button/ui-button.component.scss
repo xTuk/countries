@@ -1,0 +1,10 @@
+.disabled {
+  @apply disabled:bg-gray-300 disabled:border-white disabled:text-gray-600;
+  &:hover {
+    @apply disabled:bg-gray-300 disabled:border-white disabled:text-gray-600;
+  }
+}
+
+.active {
+  @apply disabled:bg-violet-500 disabled:border-white disabled:text-white
+}
